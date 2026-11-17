@@ -1,0 +1,69 @@
+.inputContainer{
+    position: relative;
+}
+
+.labelContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--informations-color);
+    pointer-events: none;
+    width: 19px;
+    height: 19px;
+}
+
+.input{
+    width: 100%;
+    padding: 10px;
+    padding-left: 43px;
+    outline: none;
+    border-radius: 7px;
+    border: 1px solid var(--border-color);
+    font-weight: 450;
+    font-size: 0.8em;
+
+    font-family: "Inter", sans-serif;
+}
+
+.input::placeholder{
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.input:focus-within{
+    box-shadow: 0 0 10px var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.label{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 7px;
+    font-size: 0.9em;
+    color: var(--title-color);
+    font-weight: 530;
+}
+
+.forgotPassword{
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 7px;
+    font-size: 0.875em;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.forgotPassword:hover{
+    text-decoration: underline;
+}
+
+.required::after{
+    content: " *";
+    color: var( --red-color);
+}
