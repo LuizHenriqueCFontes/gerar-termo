@@ -1,0 +1,222 @@
+.navContainer{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 200000;
+}
+
+.logoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 0 22px 20px
+}
+
+.titleLogoContainer {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.logoIconContainer{
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 8px;
+}
+
+.logoIcon{
+    color: var(--contrast-primary-color);
+    width: 25px;
+    height: 25px;
+}
+
+.logoTitle{
+    font-size: 1.35em;
+    color: var(--title-color);
+}
+
+.btnIcon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    padding: 10px;
+}
+
+.icon{
+    color: var(--title-color);
+    width: 20px;
+    height: 20px;
+    stroke-width: 3;
+}
+
+.divider {
+    border: none;
+    border-bottom: 2.40px solid var(--border-color);
+    padding-top: 9.9px;
+}
+
+.linkContent{
+    list-style: none;
+    padding: 13px 10px;
+    transition: 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.linkContent:hover{
+    background-color: var(--secondary-color-transparency);   
+}
+
+.linkContent:hover .link{
+    color: #002D40;
+    transition: 0.2s;
+}
+
+.linkContent:hover .linkIcon {
+  color: var(--constrast-secondary-color-transparency);
+  transition: 0.2s;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--informations-color);
+    font-weight: 520;
+    gap: 10px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.linkIcon{
+    width: 19px;
+    height: 19px;
+    color: var(--informations-color);
+    display: inline-block;
+}
+
+.profileContainer{
+    padding: 5px;
+}
+
+.profileContainerDesktop{
+    padding-bottom: 0;
+}
+
+.rootCollapsible{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center !important;
+    background: none;
+    border: none;
+    gap: 45px;
+    cursor: pointer;
+}
+
+.trigger[data-state="open"] .arrow {
+    transform: rotate(180deg);
+}
+
+.triggerContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--informations-color);
+    font-weight: 550;
+    gap: 10px;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.profileIcon{
+    color: var(--informations-color);   
+}
+
+.arrow {
+    align-self: flex-start;
+    stroke-width: 2.5px;
+    transition: transform 200ms ease;
+}
+
+.profileContent{
+    list-style: none;
+    display: flex;
+}
+
+.profileContent[data-state="open"] {
+    animation: slideDown 250ms ease-out;
+}
+
+.profileContent[data-state="closed"] {
+    animation: slideUp 250ms ease-in;
+}
+
+.listProfileContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.profileItem{
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.profileItem:hover{
+    background-color: var(--secondary-color-transparency);  
+}
+
+.profileItem:hover .link{
+    color: var(--constrast-secondary-color-transparency);
+    transition: 0.2s;
+}
+
+.profileItem:hover .linkIcon{
+    color: var(--constrast-secondary-color-transparency);
+    transition: 0.2s;
+}
+
+@keyframes slideDown {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+
+    to {
+        height: var(--radix-collapsible-content-height);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        height: var(--radix-collapsible-content-height);
+        opacity: 1;
+    }
+
+    to {
+        height: 0;
+        opacity: 0;
+    }
+}
