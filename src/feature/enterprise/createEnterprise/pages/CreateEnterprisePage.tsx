@@ -2,10 +2,17 @@ import { BuildingComplex, BuildingComplexPlus, CornerUpRight, IdCard, MailOpen, 
 import { Input } from "../../../../shared/components/Input/Input";
 import { useCreateEnterprise } from "../hooks/useCreateEnterprise";
 import { Button } from "../../../../shared/components/Button/Button";
+import { handleCreateEnterprise } from "../action/handleCreateEnterprise";
 
 export default function CreateEnterprise() {
 
-    const { enterpriseData, handleSetEnterpriseData } = useCreateEnterprise();
+    const { enterpriseData, handleSetEnterpriseData, createEnterprise } = useCreateEnterprise();
+
+    function submitEnterprise(event: React.SubmitEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        handleCreateEnterprise(enterpriseData, createEnterprise);
+    }
 
 
     return(
@@ -23,8 +30,7 @@ export default function CreateEnterprise() {
 
             <hr />
 
-            <form>
-
+            <form onSubmit={(event) => submitEnterprise(event)}>
                 <Input id="legal-name"
                 label="Razão Social"
                 icon={BuildingComplexPlus}
@@ -73,7 +79,7 @@ export default function CreateEnterprise() {
                 onChange={(value) => handleSetEnterpriseData("state", value)}/>
 
                 <div>
-                    <Button icon={Save} variant="primary">Cadastrar  Empresa</Button>
+                    <Button icon={Save} type="submit" variant="primary">Cadastrar  Empresa</Button>
 
                     <Button icon={CornerUpRight} variant="secondary">Cancelar</Button>
                 </div>

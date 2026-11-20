@@ -1,5 +1,7 @@
 import { useState } from "react";
 import type { CreateEnterpriseRequestDTO } from "../../types/request/CreateEnterpriseRequestDTO";
+import { useMutation } from "@tanstack/react-query";
+import { enterpriseService } from "../../service/enterpriseService";
 
 export function useCreateEnterprise() {
     const [enterpriseData, setEnterpriseData] = useState<CreateEnterpriseRequestDTO>({legalName: "", cnpj: "", cep: "", city: "", state: ""});
@@ -9,10 +11,16 @@ export function useCreateEnterprise() {
             ...prev,
             [field]: value
         }))
-    )
+    );
+
+    const createEnterprise = useMutation({
+        mutationFn: enterpriseService.createEnterprise
+    });
 
     return  {
         enterpriseData,
-        handleSetEnterpriseData
+        handleSetEnterpriseData,
+
+        createEnterprise: createEnterprise.mutateAsync
     }
 }
