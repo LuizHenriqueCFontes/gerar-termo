@@ -1,4 +1,4 @@
-import { BuildingComplex, BuildingComplexPlus, CornerUpRight, IdCard, MailOpen, Map, Save } from "lucide-react";
+import { BuildingComplex, BuildingComplexPlus, CornerUpRight, IdCard, MailOpen, Map, MapPinHouse, Save } from "lucide-react";
 import { Input } from "../../../../shared/components/Input/Input";
 import { useCreateEnterprise } from "../hooks/useCreateEnterprise";
 import { Button } from "../../../../shared/components/Button/Button";
@@ -48,6 +48,15 @@ export default function CreateEnterprise() {
                 type="text"
                 value={enterpriseData.cnpj}
                 onChange={(value) => handleSetEnterpriseData("cnpj", value)}/>
+
+                <Input id="address"
+                label="Endereço"
+                icon={MapPinHouse}
+                placeholder="Digite o endereço da empresa"
+                required
+                type="text"
+                value={enterpriseData.address}
+                onChange={(value) => handleSetEnterpriseData("address", value)}/>
 
                 <div>
                     <Input id="cep"
