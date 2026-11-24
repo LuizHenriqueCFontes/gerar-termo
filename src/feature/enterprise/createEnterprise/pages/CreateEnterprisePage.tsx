@@ -3,6 +3,7 @@ import { Input } from "../../../../shared/components/Input/Input";
 import { useCreateEnterprise } from "../hooks/useCreateEnterprise";
 import { Button } from "../../../../shared/components/Button/Button";
 import { handleCreateEnterprise } from "../action/handleCreateEnterprise";
+import styles from "./CreateEnterprise.module.css";
 
 export default function CreateEnterprise() {
 
@@ -16,21 +17,24 @@ export default function CreateEnterprise() {
 
 
     return(
-        <section>
+        <section className={styles.container}>
             <title>Cadastrar Empresa</title>
 
-            <div>
-                <div>
-                    <BuildingComplexPlus />
+            <div className={styles.titleContainer}>
+                <div className={styles.iconContainer}>
+                    <BuildingComplexPlus className={styles.icon}/>
                 </div>
 
-                <h1>Cadastro de Empresa</h1>
-                <p>Preencha os dados abaixo para cadastrar uma nova empresa.</p>
+                <div>
+                    <h1 className={styles.title}>Cadastro de Empresa</h1>
+
+                    <p className={styles.description}>Preencha os dados abaixo para cadastrar uma nova empresa.</p>
+                </div>
             </div>
 
-            <hr />
+            <hr className={styles.divider}/>
 
-            <form onSubmit={(event) => submitEnterprise(event)}>
+            <form onSubmit={(event) => submitEnterprise(event)} className={styles.form}>
                 <Input id="legal-name"
                 label="Razão Social"
                 icon={BuildingComplexPlus}
@@ -58,7 +62,7 @@ export default function CreateEnterprise() {
                 value={enterpriseData.address}
                 onChange={(value) => handleSetEnterpriseData("address", value)}/>
 
-                <div>
+                <div className={styles.inputsContainer}>
                     <Input id="cep"
                     label="CEP"
                     icon={MailOpen}
@@ -87,10 +91,10 @@ export default function CreateEnterprise() {
                 value={enterpriseData.state}
                 onChange={(value) => handleSetEnterpriseData("state", value)}/>
 
-                <div>
-                    <Button icon={Save} type="submit" variant="primary">Cadastrar  Empresa</Button>
+                <div className={styles.btnContainer}>
+                    <Button className={styles.btn} icon={Save} type="submit" variant="primary">Cadastrar  Empresa</Button>
 
-                    <Button icon={CornerUpRight} variant="secondary">Cancelar</Button>
+                    <Button className={styles.btn} icon={CornerUpRight} variant="secondary">Cancelar</Button>
                 </div>
             </form>
         </section>
