@@ -55,7 +55,10 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    width: 100%;
+}
+
+.inputsContainer > * {
+  flex: 1;
 }
 
 .btnContainer{
@@ -67,8 +70,6 @@
 
 .btn{
     white-space: nowrap;
-    gap: 8px;
-    margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -77,6 +78,7 @@
     }
 
     .btnContainer{
-        
+      width: 30%;
+      margin-left: auto;
     }
 }

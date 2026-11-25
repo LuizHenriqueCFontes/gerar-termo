@@ -94,7 +94,7 @@ export default function CreateEnterprise() {
                 <div className={styles.btnContainer}>
                     <Button className={styles.btn} icon={Save} type="submit" variant="primary">Cadastrar  Empresa</Button>
 
-                    <Button className={styles.btn} icon={CornerUpRight} variant="secondary">Cancelar</Button>
+                    <Button icon={CornerUpRight} variant="secondary">Cancelar</Button>
                 </div>
             </form>
         </section>
